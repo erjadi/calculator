@@ -1,6 +1,6 @@
 """
-Simple Calculator Module - Iteration 1
-Basic addition functionality
+Simple Calculator Module - Iteration 2
+Addition and subtraction functionality
 """
 
 
@@ -14,6 +14,12 @@ class Calculator:
         """Add two numbers and return the result."""
         result = a + b
         self.history.append(f"{a} + {b} = {result}")
+        return result
+    
+    def subtract(self, a, b):
+        """Subtract b from a and return the result."""
+        result = a - b
+        self.history.append(f"{a} - {b} = {result}")
         return result
     
     def get_history(self):

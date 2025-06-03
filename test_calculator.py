@@ -1,5 +1,5 @@
 """
-Test suite for Calculator - Iteration 1
+Test suite for Calculator - Iteration 2
 """
 import pytest
 from calculator import Calculator
@@ -33,6 +33,28 @@ class TestCalculator:
         assert result == 5
         result = self.calc.add(5, 0)
         assert result == 5
+    
+    def test_subtract_positive_numbers(self):
+        """Test subtraction of positive numbers."""
+        result = self.calc.subtract(5, 3)
+        assert result == 2
+    
+    def test_subtract_negative_numbers(self):
+        """Test subtraction of negative numbers."""
+        result = self.calc.subtract(-2, -3)
+        assert result == 1
+    
+    def test_subtract_mixed_numbers(self):
+        """Test subtraction with mixed positive and negative numbers."""
+        result = self.calc.subtract(5, -3)
+        assert result == 8
+    
+    def test_subtract_zero(self):
+        """Test subtraction with zero."""
+        result = self.calc.subtract(5, 0)
+        assert result == 5
+        result = self.calc.subtract(0, 5)
+        assert result == -5
     
     def test_history_tracking(self):
         """Test that calculations are tracked in history."""
