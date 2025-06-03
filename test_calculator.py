@@ -120,6 +120,31 @@ class TestCalculator:
         result = self.calc.divide(7, 2)
         assert result == 3.5
     
+    def test_power_positive_numbers(self):
+        """Test power operation with positive numbers."""
+        result = self.calc.power(2, 3)
+        assert result == 8
+    
+    def test_power_zero_exponent(self):
+        """Test power operation with zero exponent."""
+        result = self.calc.power(5, 0)
+        assert result == 1
+    
+    def test_power_one_exponent(self):
+        """Test power operation with exponent of one."""
+        result = self.calc.power(7, 1)
+        assert result == 7
+    
+    def test_power_negative_base(self):
+        """Test power operation with negative base."""
+        result = self.calc.power(-2, 3)
+        assert result == -8
+    
+    def test_power_negative_exponent(self):
+        """Test power operation with negative exponent."""
+        result = self.calc.power(2, -2)
+        assert result == 0.25
+    
     def test_history_tracking(self):
         """Test that calculations are tracked in history."""
         self.calc.add(2, 3)

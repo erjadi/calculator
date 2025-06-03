@@ -1,6 +1,6 @@
 """
-Simple Calculator Module - Iteration 4
-Addition, subtraction, multiplication, and division functionality
+Simple Calculator Module - Iteration 5
+Addition, subtraction, multiplication, division, and power functionality
 """
 
 
@@ -34,6 +34,13 @@ class Calculator:
             raise ValueError("Cannot divide by zero")
         result = a / b
         self.history.append(f"{a} / {b} = {result}")
+        return result
+    
+    def power(self, a, b):
+        """Raise a to the power of b and return the result."""
+        # BUG: Using XOR operator ^ instead of ** for power
+        result = a ^ b
+        self.history.append(f"{a} ** {b} = {result}")
         return result
     
     def get_history(self):
