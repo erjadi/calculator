@@ -1,6 +1,6 @@
 """
-Simple Calculator Module - Iteration 6
-Addition, subtraction, multiplication, division, power, and square root functionality
+Simple Calculator Module - Iteration 7
+Addition, subtraction, multiplication, division, power, square root, and modulo functionality
 """
 import math
 
@@ -50,6 +50,14 @@ class Calculator:
             raise ValueError("Cannot calculate square root of negative number")
         result = math.sqrt(a)
         self.history.append(f"sqrt({a}) = {result}")
+        return result
+    
+    def modulo(self, a, b):
+        """Calculate a modulo b and return the result."""
+        if b == 0:
+            raise ValueError("Cannot calculate modulo with zero divisor")
+        result = a % b
+        self.history.append(f"{a} % {b} = {result}")
         return result
     
     def get_history(self):

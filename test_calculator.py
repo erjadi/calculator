@@ -172,6 +172,31 @@ class TestCalculator:
         result = self.calc.sqrt(25)
         assert result == 5
     
+    def test_modulo_positive_numbers(self):
+        """Test modulo operation with positive numbers."""
+        result = self.calc.modulo(10, 3)
+        assert result == 1
+    
+    def test_modulo_even_division(self):
+        """Test modulo operation when numbers divide evenly."""
+        result = self.calc.modulo(12, 4)
+        assert result == 0
+    
+    def test_modulo_negative_numbers(self):
+        """Test modulo operation with negative numbers."""
+        result = self.calc.modulo(-10, 3)
+        assert result == 2  # Python's modulo behavior
+    
+    def test_modulo_by_zero_raises_error(self):
+        """Test that modulo by zero raises ValueError."""
+        with pytest.raises(ValueError, match="Cannot calculate modulo with zero divisor"):
+            self.calc.modulo(5, 0)
+    
+    def test_modulo_larger_divisor(self):
+        """Test modulo when divisor is larger than dividend."""
+        result = self.calc.modulo(3, 10)
+        assert result == 3
+    
     def test_history_tracking(self):
         """Test that calculations are tracked in history."""
         self.calc.add(2, 3)
