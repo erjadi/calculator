@@ -85,6 +85,41 @@ class TestCalculator:
         result = self.calc.multiply(1, 7)
         assert result == 7
     
+    def test_divide_positive_numbers(self):
+        """Test division of positive numbers."""
+        result = self.calc.divide(12, 3)
+        assert result == 4
+    
+    def test_divide_negative_numbers(self):
+        """Test division of negative numbers."""
+        result = self.calc.divide(-12, -3)
+        assert result == 4
+    
+    def test_divide_mixed_numbers(self):
+        """Test division with mixed positive and negative numbers."""
+        result = self.calc.divide(-12, 3)
+        assert result == -4
+    
+    def test_divide_by_one(self):
+        """Test division by one."""
+        result = self.calc.divide(7, 1)
+        assert result == 7
+    
+    def test_divide_zero_by_number(self):
+        """Test division of zero by a number."""
+        result = self.calc.divide(0, 5)
+        assert result == 0
+    
+    def test_divide_by_zero_raises_error(self):
+        """Test that division by zero raises ValueError."""
+        with pytest.raises(ValueError, match="Cannot divide by zero"):
+            self.calc.divide(5, 0)
+    
+    def test_divide_decimal_result(self):
+        """Test division that results in decimal."""
+        result = self.calc.divide(7, 2)
+        assert result == 3.5
+    
     def test_history_tracking(self):
         """Test that calculations are tracked in history."""
         self.calc.add(2, 3)

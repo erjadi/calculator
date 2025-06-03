@@ -1,6 +1,6 @@
 """
-Simple Calculator Module - Iteration 3
-Addition, subtraction, and multiplication functionality
+Simple Calculator Module - Iteration 4
+Addition, subtraction, multiplication, and division functionality
 """
 
 
@@ -26,6 +26,14 @@ class Calculator:
         """Multiply two numbers and return the result."""
         result = a * b
         self.history.append(f"{a} * {b} = {result}")
+        return result
+    
+    def divide(self, a, b):
+        """Divide a by b and return the result."""
+        if b == 0:
+            raise ValueError("Cannot divide by zero")
+        result = a / b
+        self.history.append(f"{a} / {b} = {result}")
         return result
     
     def get_history(self):
