@@ -1,6 +1,6 @@
 """
-Simple Calculator Module - Iteration 2
-Addition and subtraction functionality
+Simple Calculator Module - Iteration 3
+Addition, subtraction, and multiplication functionality
 """
 
 
@@ -20,6 +20,12 @@ class Calculator:
         """Subtract b from a and return the result."""
         result = a - b
         self.history.append(f"{a} - {b} = {result}")
+        return result
+    
+    def multiply(self, a, b):
+        """Multiply two numbers and return the result."""
+        result = a * b
+        self.history.append(f"{a} * {b} = {result}")
         return result
     
     def get_history(self):
