@@ -145,6 +145,33 @@ class TestCalculator:
         result = self.calc.power(2, -2)
         assert result == 0.25
     
+    def test_sqrt_positive_number(self):
+        """Test square root of positive number."""
+        result = self.calc.sqrt(9)
+        assert result == 3
+    
+    def test_sqrt_zero(self):
+        """Test square root of zero."""
+        result = self.calc.sqrt(0)
+        assert result == 0
+    
+    def test_sqrt_decimal(self):
+        """Test square root of decimal number."""
+        result = self.calc.sqrt(2.25)
+        assert result == 1.5
+    
+    def test_sqrt_negative_raises_error(self):
+        """Test that square root of negative number raises ValueError."""
+        with pytest.raises(ValueError, match="Cannot calculate square root of negative number"):
+            self.calc.sqrt(-4)
+    
+    def test_sqrt_perfect_square(self):
+        """Test square root of perfect squares."""
+        result = self.calc.sqrt(16)
+        assert result == 4
+        result = self.calc.sqrt(25)
+        assert result == 5
+    
     def test_history_tracking(self):
         """Test that calculations are tracked in history."""
         self.calc.add(2, 3)

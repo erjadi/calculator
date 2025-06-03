@@ -1,7 +1,8 @@
 """
-Simple Calculator Module - Iteration 5
-Addition, subtraction, multiplication, division, and power functionality
+Simple Calculator Module - Iteration 6
+Addition, subtraction, multiplication, division, power, and square root functionality
 """
+import math
 
 
 class Calculator:
@@ -41,6 +42,14 @@ class Calculator:
         # BUG: Using XOR operator ^ instead of ** for power
         result = a ^ b
         self.history.append(f"{a} ** {b} = {result}")
+        return result
+    
+    def sqrt(self, a):
+        """Calculate the square root of a number."""
+        if a < 0:
+            raise ValueError("Cannot calculate square root of negative number")
+        result = math.sqrt(a)
+        self.history.append(f"sqrt({a}) = {result}")
         return result
     
     def get_history(self):
